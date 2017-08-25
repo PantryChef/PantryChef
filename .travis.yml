@@ -9,15 +9,6 @@ android:
     - platform-tools
     - build-tools-26.0.1
     - android-26
-    
-# Extras
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-26
-
-  licenses:
-    - '.+'
 
 # Setup JAVA env for components
 before_install:
