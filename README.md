@@ -9,6 +9,6 @@ Please see the [issues list](https://github.com/brandonschabell/PantryChef/issue
 Please see our [Contributing Guide](https://github.com/PantryChef/PantryChef/blob/dev/CONTRIBUTING.md) for detailed information.
 
 ## Communication
-We have Slack! Find us at pantrychefapp.slack.com. Request an invite by sending an email to brandonschabell@gmail.com with the subject, "PantryChef Slack Invite".
+We have Slack! Find us at [pantrychefapp.slack.com](https://pantrychefapp.slack.com). Request an invite by sending an email to brandonschabell@gmail.com with the subject, "PantryChef Slack Invite".
 
 *PantryChef is still in its infancy, so this readme will be updated as progress is made.*
