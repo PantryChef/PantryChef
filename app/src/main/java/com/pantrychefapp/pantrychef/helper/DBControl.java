@@ -34,18 +34,14 @@ public class DBControl {
         ContentValues values = new ContentValues();
         Iterator it = queryValues.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry<String, String> pair = (Map.Entry)it.next();
+            Map.Entry<String, String> pair = (Map.Entry) it.next();
             values.put(pair.getKey(), pair.getValue());
         }
         db.insert(tableName, null, values);
     }
 
-    public void update() {
-        //TODO: Create method
-    }
-
-    public void delete() {
-        //TODO: Create method
+    public void executeSql(String sql) {
+        db.execSQL(sql);
     }
 
     public ArrayList<Map<String, String>> select(String query) {
