@@ -23,6 +23,12 @@ Next, you'll need to fork the _dev_ branch to create a new branch with an approp
   ISSUE-< _ISSUE #_ >-< _BRIEF-DESCRIPTIVE-NAME_ >
   
 Examples include: "ISSUE-187-Add-Recipe-Delete-Tool" or "ISSUE-47-Pantry-Deletion-Bugfix"
+
+### Is there any formatting requirement for a commit?
+There is! We ask that commit messages follow a very similar structure to that of a branch name.
+Commit messages should start with an issue number and then be followed by a brief description of the work completed within the commit.
+
+Example: "ISSUE-184 created switch statement for api identification"
   
 ### What do I do when I'm done?
 You should make sure that new tests have been written to cover the feature you're working on. We recommend that you take a test-driven approach to your code- write your tests first, then write code to make your tests pass. This is especially effective for bug fixes. Regardless of the approach you take, please make sure all tests are passing before you send in a pull request. When tests are green, you're ready to make your pull request to the _dev_ branch. This is a great time to double check that your pull request contains your issue number. As soon as you issue your pull request, comment on the issue to let us know! We wouldn't want other people wasting their time working on the same issue after you're done.
