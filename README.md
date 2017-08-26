@@ -11,6 +11,6 @@ Version 0 is the current development version. Please prioritize issues with Mile
 Please see our [Contributing Guide](https://github.com/PantryChef/PantryChef/blob/dev/CONTRIBUTING.md) for detailed information.
 
 ## Communication
-We have Slack! Find us at [pantrychefapp.slack.com](https://pantrychefapp.slack.com). Request an invite by sending an email to brandonschabell@gmail.com with the subject, "PantryChef Slack Invite".
+We have a discord server set up. Please click [here](https://discord.gg/Bjh3fVF) to join!
 
 *PantryChef is still in its infancy, so this readme will be updated as progress is made.*
