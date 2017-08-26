@@ -5,6 +5,8 @@ PantryChef is an open-source Android app that allows users to scan food items an
 
 Please see the [issues list](https://github.com/brandonschabell/PantryChef/issues) for an up-to-date list of work that needs to be done. Feel free to comment on any issues with opinions or if you'd like to work on the issue.
 
+Version 0 is the current development version. Please prioritize issues with Milestone: Version 0.
+
 ## Rules/Workflow/Formatting:
 Please see our [Contributing Guide](https://github.com/PantryChef/PantryChef/blob/dev/CONTRIBUTING.md) for detailed information.
 
