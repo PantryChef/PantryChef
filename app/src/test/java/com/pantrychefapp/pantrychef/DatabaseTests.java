@@ -58,14 +58,4 @@ public class DatabaseTests {
         assertEquals("Beef", item.get(0).get("name"));
         assertEquals("189.649", item.get(0).get("amount"));
     }
-
-    @Test
-    public void testFail() {
-        fail("this should fail.");
-    }
-
-    @Test
-    public void testPass() {
-        assertEquals(1, 1);
-    }
 }
