@@ -18,10 +18,16 @@ android {
         }
     }
     sourceSets { main { java.srcDirs = ['src/main/java', 'src/main/java/helper'] } }
+
+    applicationVariants.all { variant ->
+        def productFlavor = variant.productFlavors[0] != null ? "${variant.productFlavors[0].name.capitalize()}" : ""
+        def buildType = "${variant.buildType.name.capitalize()}"
+        tasks["compile${productFlavor}${buildType}UnitTestSources"].dependsOn(tasks["merge${productFlavor}${buildType}Assets"])
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

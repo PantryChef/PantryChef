@@ -19,7 +19,7 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 19, packageName = "com.pantrychefapp.pantrychef")
+@Config(constants = BuildConfig.class, sdk = 19, packageName = "com.pantrychefapp.pantrychef", assetDir = "/src/main/assets/")
 public class DatabaseTests {
 
     private DBHelper dbHelper;
@@ -41,6 +41,7 @@ public class DatabaseTests {
         HashMap<String, String> valuesMap = new HashMap<>();
         valuesMap.put("name", "Chicken");
         valuesMap.put("amount", "245.8");
+        valuesMap.put("unit", "mL");
         sql.insert("pantry", valuesMap);
 
         valuesMap.clear();
@@ -52,6 +53,7 @@ public class DatabaseTests {
         assertEquals(1, item.size());
         assertEquals("Chicken", item.get(0).get("name"));
         assertEquals("245.8", item.get(0).get("amount"));
+        assertEquals("mL", item.get(0).get("unit"));
 
         item = sql.select("select * from pantry where amount=189.649");
         assertEquals(1, item.size());
