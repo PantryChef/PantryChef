@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PantryChef</string>
+    <string name="my_pantry">My Pantry</string>
+    <string name="my_recipes">My Recipes</string>
 </resources>
