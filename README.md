@@ -3,11 +3,11 @@
 
 PantryChef is an open-source Android app that allows users to scan food items and retreive a list of recipes that leverage only the ingredients in their possession.
 
-Please see the [issues list](https://github.com/PantryChef/PantryChef/issues) for an up-to-date list of work that needs to be done. Feel free to comment on any issues with opinions or if you'd like to work on the issue.
+You can find current issues here: [![Stories in Ready](https://badge.waffle.io/PantryChef/PantryChef.png?label=ready&title=Ready)](http://waffle.io/PantryChef/PantryChef). This is an up-to-date list of work that needs to be done. Feel free to comment on any issues with opinions or if you'd like to work on the issue.
 
 Version 0 is the current production version.
 
-Version 0.1 is the current development version. Please prioritize issues with Milestone: Version 0.1.
+Version 0.1 is the current development version.
 
 ## Rules/Workflow/Formatting:
 Please see our [Contributing Guide](https://github.com/PantryChef/PantryChef/blob/dev/CONTRIBUTING.md) for detailed information.
