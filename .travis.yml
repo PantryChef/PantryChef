@@ -29,6 +29,13 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
   
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+  
 # Notifications
 notifications:
   email:

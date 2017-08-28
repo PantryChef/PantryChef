@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS pantry;
+
+CREATE TABLE pantry (id INTEGER PRIMARY KEY, name TEXT, amount DOUBLE, unit TEXT);

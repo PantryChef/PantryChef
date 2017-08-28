@@ -1,5 +1,7 @@
 package com.pantrychefapp.pantrychef;
 
+import com.pantrychefapp.pantrychef.helper.DBControl;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
