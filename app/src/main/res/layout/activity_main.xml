@@ -11,6 +11,7 @@
         android:layout_width="159dp"
         android:layout_height="52dp"
         android:layout_marginTop="29dp"
+        android:onClick="getMyRecipes"
         android:text="@string/my_recipes"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -18,13 +19,14 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="111dp" />
+        tools:layout_editor_absoluteX="111dp"/>
 
     <Button
         android:id="@+id/my_pantry_btn"
         android:layout_width="159dp"
         android:layout_height="52dp"
         android:layout_marginTop="100dp"
+        android:onClick="getMyPantry"
         android:text="@string/my_pantry"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,6 +34,6 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="96dp" />
+        tools:layout_editor_absoluteX="96dp"/>
 
 </android.support.constraint.ConstraintLayout>
