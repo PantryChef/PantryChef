@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pantrychefapp.pantrychef.AddRecipeActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:contentDescription="Recipe Name"
+        android:ems="10"
+        android:hint="Recipe Name"
+        android:inputType="text"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="16dp"/>
+</android.support.constraint.ConstraintLayout>
