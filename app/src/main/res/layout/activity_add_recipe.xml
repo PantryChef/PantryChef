@@ -9,13 +9,20 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:contentDescription="Recipe Name"
         android:ems="10"
         android:hint="Recipe Name"
         android:inputType="text"
-        android:singleLine="true"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="16dp"/>
+        android:maxLines="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>
