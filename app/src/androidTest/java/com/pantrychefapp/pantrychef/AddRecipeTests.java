@@ -65,7 +65,7 @@ public class AddRecipeTests {
 
 	    onView(withId(R.id.addIngredientButton)).perform(click());
 	    try {
-		    wait(500);
+		    Thread.sleep(250);
 	    } catch (InterruptedException e) {
 		    e.printStackTrace();
 	    }
@@ -74,7 +74,7 @@ public class AddRecipeTests {
 	    onView(allOf(withText(""), withHint("Unit"))).perform(typeText("tsp"));
 	    closeSoftKeyboard();
 	    try {
-		    wait(500);
+		    Thread.sleep(250);
 	    } catch (InterruptedException e) {
 		    e.printStackTrace();
 	    }
