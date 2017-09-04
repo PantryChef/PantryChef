@@ -30,14 +30,14 @@ public class DBControl {
         dbHelper.close();
     }
 
-    public void insert(String tableName, HashMap<String, String> queryValues) {
+    public long insert(String tableName, HashMap<String, String> queryValues) {
         ContentValues values = new ContentValues();
         Iterator it = queryValues.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, String> pair = (Map.Entry) it.next();
             values.put(pair.getKey(), pair.getValue());
         }
-        db.insert(tableName, null, values);
+        return db.insert(tableName, null, values);
     }
 
     public void executeSql(String sql) {

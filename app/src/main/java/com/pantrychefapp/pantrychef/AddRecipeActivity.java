@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import com.pantrychefapp.pantrychef.helper.BOHelper;
+import com.pantrychefapp.pantrychef.helper.DBHelper;
+
 public class AddRecipeActivity extends AppCompatActivity {
 
 	int ingredientId = 3;
@@ -32,21 +35,21 @@ public class AddRecipeActivity extends AppCompatActivity {
 		layoutParamsQuantity.column=3;
 
 		EditText ingredientField = new EditText(this);
-		ingredientField.setText(R.string.addRecipeHeaderIngredient);
+		ingredientField.setHint(R.string.addRecipeHeaderIngredient);
 		ingredientField.setLayoutParams(layoutParamsIngredients);
 		ingredientField.setTag(getText(R.string.tag_ingredientField));
 		ingredientField.setInputType(InputType.TYPE_CLASS_TEXT);
 		tr.addView(ingredientField);
 
 		EditText quantityField = new EditText(this);
-		quantityField.setText(R.string.addRecipeHeaderQuantity);
+		quantityField.setHint(R.string.addRecipeHeaderQuantity);
 		quantityField.setLayoutParams(layoutParamsQuantity);
 		quantityField.setTag(getText(R.string.tag_quantityField));
 		quantityField.setInputType(InputType.TYPE_CLASS_NUMBER);
 		tr.addView(quantityField);
 
 		EditText unitField = new EditText(this);
-		unitField.setText(R.string.addRecipeHeaderUnit);
+		unitField.setHint(R.string.addRecipeHeaderUnit);
 		unitField.setLayoutParams(layoutParamsUnits);
 		unitField.setTag(getText(R.string.tag_unitField));
 		unitField.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -60,6 +63,8 @@ public class AddRecipeActivity extends AppCompatActivity {
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.ingredientListLayout);
 
 		// Write recipe to DB
+		String recipeName = ((EditText) findViewById(R.id.recipeName)).getText().toString();
+		long recipeId = BOHelper.recipeBO().addRecipe(this, recipeName);
 
 		int rowCount = tableLayout.getChildCount();
 		// Skipping row 0 (header row)
@@ -70,12 +75,14 @@ public class AddRecipeActivity extends AppCompatActivity {
 			String ingredientName = ingredientField.getText().toString();
 
 			EditText quantityField = tableRow.findViewWithTag(getText(R.string.tag_quantityField));
-			String quantity = quantityField.getText().toString();
+			String quantityStr = quantityField.getText().toString();
+			double quantity = Double.parseDouble(quantityStr);
 
 			EditText unitField = tableRow.findViewWithTag(getText(R.string.tag_unitField));
 			String unit = unitField.getText().toString();
 
 			// Write ingredient to DB
+			BOHelper.recipeBO().addIngredient(this, recipeId, ingredientName, quantity, unit);
 		}
 	}
 }
