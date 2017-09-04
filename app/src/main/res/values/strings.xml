@@ -3,4 +3,13 @@
     <string name="my_pantry">My Pantry</string>
     <string name="my_recipes">My Recipes</string>
     <string name="button_addRecipe">Add Recipe</string>
+    <string name="button_addIngredient">Add Ingredient</string>
+    <string name="recipeNameHint">Recipe Name</string>
+    <string name="addRecipeHeaderIngredient">Ingredient Name</string>
+    <string name="addRecipeHeaderQuantity">Quantity</string>
+    <string name="addRecipeHeaderUnit">Unit</string>
+    <string name="button_submitRecipe">Submit Recipe</string>
+    <string name="tag_ingredientField">ingredientFieldTag</string>
+    <string name="tag_quantityField">quantityFieldTag</string>
+    <string name="tag_unitField">unitFieldTag</string>
 </resources>
