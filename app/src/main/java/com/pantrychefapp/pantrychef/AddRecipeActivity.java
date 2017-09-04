@@ -32,7 +32,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 		layoutParamsQuantity.column=2;
 
 		TableRow.LayoutParams layoutParamsUnits = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1);
-		layoutParamsQuantity.column=3;
+		layoutParamsUnits.column=3;
 
 		EditText ingredientField = new EditText(this);
 		ingredientField.setHint(R.string.addRecipeHeaderIngredient);
