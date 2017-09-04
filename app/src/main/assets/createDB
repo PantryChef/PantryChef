@@ -1,3 +1,20 @@
-DROP TABLE IF EXISTS pantry;
+CREATE TABLE IF NOT EXISTS pantry (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    amount DOUBLE,
+    unit TEXT
+);
 
-CREATE TABLE pantry (id INTEGER PRIMARY KEY, name TEXT, amount DOUBLE, unit TEXT);
+CREATE TABLE IF NOT EXISTS recipe (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ingredient (
+    id INTEGER PRIMARY KEY,
+    recipeId INTEGER,
+    ingredientName TEXT,
+    quantity DOUBLE,
+    unit TEXT,
+    FOREIGN KEY(recipeId) REFERENCES recipe(id)
+);

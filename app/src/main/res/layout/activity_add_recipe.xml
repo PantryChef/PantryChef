@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
+
+    <EditText
+        android:id="@+id/recipeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/recipeNameHint"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/addIngredientButton"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:onClick="addIngredientField"
+        android:text="@string/button_addIngredient"/>
+
+    <TableLayout
+        android:id="@+id/ingredientListLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/addRecipeHeaderIngredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_column="1"/>
+            <TextView
+                android:text="@string/addRecipeHeaderQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="2"/>
+            <TextView
+                android:text="@string/addRecipeHeaderUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="3"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ingredientField1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:tag="@string/tag_ingredientField"
+                android:hint="@string/addRecipeHeaderIngredient"/>
+
+            <EditText
+                android:id="@+id/quantityField1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:tag="@string/tag_quantityField"
+                android:hint="@string/addRecipeHeaderQuantity"/>
+
+            <EditText
+                android:id="@+id/unitField1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:tag="@string/tag_unitField"
+                android:hint="@string/addRecipeHeaderUnit"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ingredientField2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:tag="@string/tag_ingredientField"
+                android:hint="@string/addRecipeHeaderIngredient"/>
+
+            <EditText
+                android:id="@+id/quantityField2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:tag="@string/tag_quantityField"
+                android:hint="@string/addRecipeHeaderQuantity"/>
+
+            <EditText
+                android:id="@+id/unitField2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:tag="@string/tag_unitField"
+                android:hint="@string/addRecipeHeaderUnit"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <Button
+        android:id="@+id/submitRecipeButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="@string/button_submitRecipe"
+        android:onClick="submitRecipe"/>
+
+</LinearLayout>
