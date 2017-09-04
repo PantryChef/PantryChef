@@ -64,20 +64,13 @@ public class AddRecipeTests {
 	    onView(withId(R.id.unitField2)).perform(typeText("tbsp"));
 
 	    onView(withId(R.id.addIngredientButton)).perform(click());
-	    try {
-		    Thread.sleep(250);
-	    } catch (InterruptedException e) {
-		    e.printStackTrace();
-	    }
+	    closeSoftKeyboard();
 	    onView(allOf(withText(""), withHint("Ingredient Name"))).perform(typeText("Olive Oil"));
+	    closeSoftKeyboard();
 	    onView(allOf(withText(""), withHint("Quantity"))).perform(typeText("1"));
+	    closeSoftKeyboard();
 	    onView(allOf(withText(""), withHint("Unit"))).perform(typeText("tsp"));
 	    closeSoftKeyboard();
-	    try {
-		    Thread.sleep(250);
-	    } catch (InterruptedException e) {
-		    e.printStackTrace();
-	    }
 	    onView(withId(R.id.submitRecipeButton)).perform(click());
 
 	    DBControl sql = new DBControl(getTargetContext());
