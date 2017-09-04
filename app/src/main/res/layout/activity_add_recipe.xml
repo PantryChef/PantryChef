@@ -59,27 +59,29 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_column="1"
-                android:text="@string/addRecipeHeaderIngredient"
+                android:layout_weight="2"
+                android:inputType="text"
                 android:tag="@string/tag_ingredientField"
-                />
+                android:text="@string/addRecipeHeaderIngredient"/>
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_column="2"
-                android:text="@string/addRecipeHeaderQuantity"
+                android:layout_weight="1"
+                android:inputType="number"
                 android:tag="@string/tag_quantityField"
-                />
+                android:text="@string/addRecipeHeaderQuantity"/>
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_column="3"
-                android:text="@string/addRecipeHeaderUnit"
+                android:layout_weight="1"
+                android:inputType="text"
                 android:tag="@string/tag_unitField"
-                />
+                android:text="@string/addRecipeHeaderUnit"/>
         </TableRow>
 
         <TableRow
@@ -89,27 +91,29 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_column="1"
-                android:text="@string/addRecipeHeaderIngredient"
+                android:layout_weight="2"
+                android:inputType="text"
                 android:tag="@string/tag_ingredientField"
-                />
+                android:text="@string/addRecipeHeaderIngredient"/>
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_column="2"
-                android:text="@string/addRecipeHeaderQuantity"
+                android:layout_weight="1"
+                android:inputType="number"
                 android:tag="@string/tag_quantityField"
-                />
+                android:text="@string/addRecipeHeaderQuantity"/>
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_column="3"
-                android:text="@string/addRecipeHeaderUnit"
+                android:layout_weight="1"
+                android:inputType="text"
                 android:tag="@string/tag_unitField"
-                />
+                android:text="@string/addRecipeHeaderUnit"/>
         </TableRow>
     </TableLayout>
 

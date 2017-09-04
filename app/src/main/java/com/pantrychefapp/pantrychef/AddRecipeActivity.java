@@ -2,6 +2,7 @@ package com.pantrychefapp.pantrychef;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -33,19 +34,22 @@ public class AddRecipeActivity extends AppCompatActivity {
 		EditText ingredientField = new EditText(this);
 		ingredientField.setText(R.string.addRecipeHeaderIngredient);
 		ingredientField.setLayoutParams(layoutParamsIngredients);
-		ingredientField.setTag(R.string.tag_ingredientField);
+		ingredientField.setTag(getText(R.string.tag_ingredientField));
+		ingredientField.setInputType(InputType.TYPE_CLASS_TEXT);
 		tr.addView(ingredientField);
 
 		EditText quantityField = new EditText(this);
 		quantityField.setText(R.string.addRecipeHeaderQuantity);
 		quantityField.setLayoutParams(layoutParamsQuantity);
-		quantityField.setTag(R.string.tag_quantityField);
+		quantityField.setTag(getText(R.string.tag_quantityField));
+		quantityField.setInputType(InputType.TYPE_CLASS_NUMBER);
 		tr.addView(quantityField);
 
 		EditText unitField = new EditText(this);
 		unitField.setText(R.string.addRecipeHeaderUnit);
 		unitField.setLayoutParams(layoutParamsUnits);
-		unitField.setTag(R.string.tag_unitField);
+		unitField.setTag(getText(R.string.tag_unitField));
+		unitField.setInputType(InputType.TYPE_CLASS_TEXT);
 		tr.addView(unitField);
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.ingredientListLayout);
@@ -54,6 +58,9 @@ public class AddRecipeActivity extends AppCompatActivity {
 
 	public void submitRecipe(View view) {
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.ingredientListLayout);
+
+		// Write recipe to DB
+
 		int rowCount = tableLayout.getChildCount();
 		// Skipping row 0 (header row)
 		for (int i = 1; i < rowCount; i++) {
@@ -68,7 +75,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 			EditText unitField = tableRow.findViewWithTag(getText(R.string.tag_unitField));
 			String unit = unitField.getText().toString();
 
-			System.out.println("Recording ingredient: " + ingredientName + "-" + quantity + " " + unit);
+			// Write ingredient to DB
 		}
 	}
 }
