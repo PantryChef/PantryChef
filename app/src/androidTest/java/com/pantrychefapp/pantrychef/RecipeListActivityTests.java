@@ -3,6 +3,7 @@ package com.pantrychefapp.pantrychef;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.test.runner.MonitoringInstrumentation;
 
 import com.pantrychefapp.pantrychef.helper.DBControl;
 import com.pantrychefapp.pantrychef.helper.DBHelper;
@@ -20,6 +21,7 @@ import java.util.Map;
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.pressBack;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -32,7 +34,7 @@ import static org.junit.Assert.*;
 public class RecipeListActivityTests {
 
 	@Rule
-	public ActivityTestRule<RecipeListActivity> mActivityRule = new ActivityTestRule<RecipeListActivity>(RecipeListActivity.class);
+	public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
 	private DBHelper dbHelper;
 
@@ -70,6 +72,7 @@ public class RecipeListActivityTests {
 		values.put("unit", "pint");
 		sql.insert("ingredient", values);
 		sql.close();
+		onView(withText(R.string.my_recipes)).perform(click());
 		onView(allOf(withId(R.id.content), withText("X")));
 		onView(allOf(withId(R.id.content), withText("Pancakes"))).perform(click());
 		onView(withId(R.id.recipe_detail)).check(matches(withText("Ingredients: \n4.0 cup Flour\n1.0 pint Water")));
