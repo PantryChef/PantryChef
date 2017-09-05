@@ -58,4 +58,8 @@ public class DBControl {
         }
         return result;
     }
+
+    public Cursor selectCursor(String query) {
+        return db.rawQuery(query, null);
+    }
 }

@@ -49,11 +49,6 @@ public class AddRecipeTests {
 	}
 
     @Test
-    public void testContent() {
-	    onView(withText("Ingredient Name")).check(matches(isDisplayed()));
-    }
-
-    @Test
 	public void testAddRecipe() {
 	    onView(withId(R.id.recipeName)).perform(typeText("Lemon Chicken"));
 	    onView(withId(R.id.ingredientField1)).perform(typeText("Chicken Breast"));
