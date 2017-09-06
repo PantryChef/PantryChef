@@ -1,11 +1,16 @@
 package com.pantrychefapp.pantrychef.dao.sqlite;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.pantrychefapp.pantrychef.dao.RecipeDAO;
 import com.pantrychefapp.pantrychef.helper.DBControl;
+import com.pantrychefapp.pantrychef.objectResources.Ingredient;
+import com.pantrychefapp.pantrychef.objectResources.Recipe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SQLiteRecipeDAO implements RecipeDAO {
 	@Override
@@ -35,5 +40,48 @@ public class SQLiteRecipeDAO implements RecipeDAO {
 		} finally {
 			sql.close();
 		}
+	}
+
+	@Override
+	public ArrayList<Recipe> getRecipes(Context context) {
+		ArrayList<Recipe> recipes = new ArrayList<>();
+		DBControl sql = new DBControl(context);
+		sql.open();
+		try {
+			ArrayList<Map<String, String>> query = sql.select("select * from recipe");
+			for (Map<String, String> row : query) {
+				Recipe recipe = new Recipe(Long.parseLong(row.get("id")), row.get("name"), null);
+				recipes.add(recipe);
+			}
+		} finally {
+			sql.close();
+		}
+		return recipes;
+	}
+
+	@Override
+	public Recipe getRecipe(Context context, long id) {
+		Recipe recipe = null;
+		DBControl sql = new DBControl(context);
+		sql.open();
+		try {
+			Map<String, String> query = sql.select("select * from recipe where id=" + id).get(0);
+			recipe = new Recipe(Long.parseLong(query.get("id")), query.get("name"), null);
+			ArrayList<Map<String, String>> ingredientsQuery = sql.select("select * from ingredient where recipeId=" + id);
+			ArrayList<Ingredient> ingredients = new ArrayList<>();
+			for (Map<String, String> ingredientQuery : ingredientsQuery) {
+				Ingredient ingredient = new Ingredient(
+						Long.parseLong(ingredientQuery.get("id")),
+						Long.parseLong(ingredientQuery.get("recipeId")),
+						ingredientQuery.get("ingredientName"),
+						Double.parseDouble(ingredientQuery.get("quantity")),
+						ingredientQuery.get("unit"));
+				ingredients.add(ingredient);
+			}
+			recipe.setIngredients(ingredients);
+		} finally {
+			sql.close();
+		}
+		return recipe;
 	}
 }

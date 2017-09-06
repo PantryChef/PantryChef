@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getMyRecipes(View view) {
-        Intent intent = new Intent(this, MyRecipes.class);
+        Intent intent = new Intent(this, RecipeListActivity.class);
         startActivity(intent);
     }
 }
