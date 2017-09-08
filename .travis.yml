@@ -1,5 +1,4 @@
 language: android
-install: travis_retry
 jdk:
   - oraclejdk8
 android:
@@ -29,11 +28,6 @@ before_script:
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
-  
-script:
-  - travis_retry gulp clean
-  - travis_retry gulp gwt
-  - travis_retry gulp test:validation
   
 # Notifications
 notifications:
