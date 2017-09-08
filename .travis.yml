@@ -1,5 +1,5 @@
 language: android
-install: travis_retry npm install
+install: travis_retry
 jdk:
   - oraclejdk8
 android:
