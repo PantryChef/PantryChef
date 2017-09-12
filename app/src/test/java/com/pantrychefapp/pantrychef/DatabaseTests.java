@@ -12,6 +12,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,13 +50,16 @@ public class DatabaseTests {
         valuesMap.put("amount", "189.649");
         sql.insert("pantry", valuesMap);
 
-        ArrayList<Map<String, String>> item = sql.select("select * from pantry where name='Chicken'");
+	    sql.addSQL("select * from pantry where name='Chicken'");
+        ArrayList<Map<String, String>> item = sql.querySQL();
         assertEquals(1, item.size());
         assertEquals("Chicken", item.get(0).get("name"));
         assertEquals("245.8", item.get(0).get("amount"));
         assertEquals("mL", item.get(0).get("unit"));
 
-        item = sql.select("select * from pantry where amount=189.649");
+		sql.reset();
+	    sql.addSQL("select * from pantry where amount=?", 189.649);
+	    item = sql.querySQL();
         assertEquals(1, item.size());
         assertEquals("Beef", item.get(0).get("name"));
         assertEquals("189.649", item.get(0).get("amount"));
@@ -67,7 +71,8 @@ public class DatabaseTests {
         sql.open();
         sql.executeSql("insert into pantry (name, amount) values ('Steak', 1740)");
         sql.executeSql("update pantry set amount=1400 where name='Steak'");
-        ArrayList<Map<String, String>> item = sql.select("select * from pantry where name='Steak'");
+	    sql.addSQL("select * from pantry where name='Steak'");
+        ArrayList<Map<String, String>> item = sql.querySQL();
         assertEquals(1, item.size());
         assertEquals("Steak", item.get(0).get("name"));
         assertEquals("1400.0", item.get(0).get("amount"));
@@ -79,7 +84,8 @@ public class DatabaseTests {
         sql.open();
         sql.executeSql("insert into pantry (name, amount) values ('Steak', 1740)");
         sql.executeSql("delete from pantry where name='Steak'");
-        ArrayList<Map<String, String>> item = sql.select("select * from pantry where name='Steak'");
+	    sql.addSQL("select * from pantry where name='Steak'");
+        ArrayList<Map<String, String>> item = sql.querySQL();
         assertEquals(0, item.size());
     }
 }

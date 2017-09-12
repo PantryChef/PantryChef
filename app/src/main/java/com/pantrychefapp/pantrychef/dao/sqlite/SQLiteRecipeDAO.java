@@ -48,7 +48,8 @@ public class SQLiteRecipeDAO implements RecipeDAO {
 		DBControl sql = new DBControl(context);
 		sql.open();
 		try {
-			ArrayList<Map<String, String>> query = sql.select("select * from recipe");
+			sql.addSQL("select * from recipe");
+			ArrayList<Map<String, String>> query = sql.querySQL();
 			for (Map<String, String> row : query) {
 				Recipe recipe = new Recipe(Long.parseLong(row.get("id")), row.get("name"), null);
 				recipes.add(recipe);
@@ -65,9 +66,12 @@ public class SQLiteRecipeDAO implements RecipeDAO {
 		DBControl sql = new DBControl(context);
 		sql.open();
 		try {
-			Map<String, String> query = sql.select("select * from recipe where id=" + id).get(0);
+			sql.addSQL("select * from recipe where id=?", id);
+			Map<String, String> query = sql.querySQL().get(0);
 			recipe = new Recipe(Long.parseLong(query.get("id")), query.get("name"), null);
-			ArrayList<Map<String, String>> ingredientsQuery = sql.select("select * from ingredient where recipeId=" + id);
+			sql.reset();
+			sql.addSQL("select * from ingredient where recipeId=?", id);
+			ArrayList<Map<String, String>> ingredientsQuery = sql.querySQL();
 			ArrayList<Ingredient> ingredients = new ArrayList<>();
 			for (Map<String, String> ingredientQuery : ingredientsQuery) {
 				Ingredient ingredient = new Ingredient(

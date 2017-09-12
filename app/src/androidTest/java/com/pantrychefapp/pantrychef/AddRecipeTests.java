@@ -70,11 +70,14 @@ public class AddRecipeTests {
 
 	    DBControl sql = new DBControl(getTargetContext());
 	    sql.open();
-	    ArrayList<Map<String, String>> item = sql.select("select * from recipe where name='Lemon Chicken'");
+	    sql.addSQL("select * from recipe where name='Lemon Chicken'");
+	    ArrayList<Map<String, String>> item = sql.querySQL();
 	    assertEquals(1, item.size());
 	    long id = Long.parseLong(item.get(0).get("id"));
 
-	    item = sql.select("select * from ingredient where recipeId=" + id);
+	    sql.reset();
+	    sql.addSQL("select * from ingredient where recipeId=?", id);
+	    item = sql.querySQL();
 	    assertEquals(3, item.size());
 	    assertEquals("Chicken Breast", item.get(0).get("ingredientName"));
 	    assertEquals("8", item.get(0).get("quantity"));
